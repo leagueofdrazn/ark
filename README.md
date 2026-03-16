@@ -81,6 +81,10 @@ claude --dangerously-skip-permissions
 
 `/ark:new` is the only setup step — describe your goal and ARK designs everything. After that, you can use slash commands or just talk to Claude normally. Ask "how's my experiment going?" and it reads the experiment files and answers.
 
+## Run multiple experiments at once
+
+Each `/ark:new` creates an isolated experiment directory. Open multiple Claude Code sessions in different directories and run `/ark:run` in each — they won't interfere with each other. Each has its own results, journal, and dashboard.
+
 ## The onboarding conversation
 
 `/ark:new` starts a conversation where you describe your goal and the AI designs everything else — metrics, evaluation code, data strategy, time budget. It detects your hardware, pushes back if your approach won't work, and explains what it's doing in plain language. You confirm the design, and it scaffolds the entire experiment.
