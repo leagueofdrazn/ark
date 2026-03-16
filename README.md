@@ -159,7 +159,7 @@ your-experiment/
 ├── kit.json          # Config (dashboard reads this)
 ├── program.md        # Research protocol (domain-specific, human-editable)
 ├── laws.md           # Autoresearch laws (immutable protocol rules)
-├── CLAUDE.md         # Session instructions + file permissions
+├── CLAUDE.md         # Agent context (also generated as AGENTS.md)
 ├── journal.md        # Knowledge base (confirmed/working/failed findings)
 ├── results.tsv       # Full experiment history
 ├── events.log        # System events (phase transitions, insights)
@@ -172,7 +172,7 @@ your-experiment/
 |------|--------------|-------------------------------|
 | `laws.md` | ARK (copied verbatim) | No — immutable, ever |
 | `program.md` | Human + ARK together | No during runs. Yes between sessions |
-| `kit.json` | ARK | No |
+| `kit.json` | ARK | Only when human approves a strategy change |
 | `journal.md` | Agent | Yes — this is the knowledge base |
 | `results.tsv` | Agent | Yes — append only |
 | Domain code | ARK generates, agent modifies | Mutable files: yes. Immutable files: no |
