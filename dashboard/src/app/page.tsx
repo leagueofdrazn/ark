@@ -164,7 +164,7 @@ export default function Dashboard() {
             >
               <div
                 className={`absolute top-0.5 w-3 h-3 rounded-full bg-white transition-transform ${
-                  live ? "translate-x-4" : "translate-x-0.5"
+                  live ? "translate-x-[18px]" : "translate-x-0.5"
                 }`}
               />
             </div>
@@ -181,7 +181,7 @@ export default function Dashboard() {
             >
               <div
                 className={`absolute top-0.5 w-3 h-3 rounded-full bg-white transition-transform ${
-                  dark ? "translate-x-4" : "translate-x-0.5"
+                  dark ? "translate-x-[18px]" : "translate-x-0.5"
                 }`}
               />
             </div>
