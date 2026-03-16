@@ -128,7 +128,7 @@ export default function Dashboard() {
 
   // Stats
   const validExps = experiments.filter((e) => e[activeMetric] !== undefined);
-  const validVals = validExps.map((e) => e[activeMetric] as number);
+  const validVals = validExps.map((e) => Number(e[activeMetric])).filter((v) => !isNaN(v));
   const bestVal = validVals.length > 0
     ? (activeDirection === "lower" ? Math.min(...validVals) : Math.max(...validVals))
     : null;
@@ -515,7 +515,7 @@ function FloorGauges({
                   label=""
                   value={val.toFixed(4)}
                   max={String(floor.value)}
-                  pct={floor.direction === "lower" ? val / (floor.value as number) : (floor.value as number) / val}
+                  pct={floor.direction === "lower" ? (floor.value ? val / (floor.value as number) : 0) : (val ? (floor.value as number) / val : 0)}
                 />
               )}
             </div>
@@ -781,8 +781,9 @@ function ExperimentSummary({
 
 // ─── Diminishing Returns ──────────────────────────────────
 function DiminishingReturns({ values, direction }: { values: number[]; direction: string }) {
-  const window = Math.min(10, Math.floor(values.length / 2));
+  const window = Math.max(2, Math.min(10, Math.floor(values.length / 2)));
   const recent = values.slice(-window);
+  if (recent.length < 2) return null;
   const totalRange = Math.abs(Math.max(...values) - Math.min(...values));
   if (totalRange === 0) return null;
 
@@ -790,9 +791,11 @@ function DiminishingReturns({ values, direction }: { values: number[]; direction
   const recentPct = (recentRange / totalRange) * 100;
 
   const diffs = recent.slice(1).map((v, i) => v - recent[i]);
-  const avgImprovement = direction === "lower"
-    ? -(diffs.reduce((a, b) => a + b, 0) / diffs.length)
-    : diffs.reduce((a, b) => a + b, 0) / diffs.length;
+  const avgImprovement = diffs.length > 0
+    ? (direction === "lower"
+      ? -(diffs.reduce((a, b) => a + b, 0) / diffs.length)
+      : diffs.reduce((a, b) => a + b, 0) / diffs.length)
+    : 0;
 
   let status: "success" | "warning" | "danger";
   let message: string;
