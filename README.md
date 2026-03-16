@@ -16,7 +16,7 @@ ARK solves this by pairing you with an AI researcher that helps you design the e
 - **You learn along the way.** ARK explains what it's doing and why, translates results into plain language, and teaches you best practices for interpreting statistical outcomes.
 - **You don't need to write a program.md from scratch.** ARK designs it with you through conversation, pushing back if your approach won't work.
 - **You don't need to read raw TSV logs.** A live dashboard shows what's happening, and `/ark:report` explains what the numbers mean in context.
-- **It works on any hardware.** MacBooks, cloud VMs, GPUs, CPUs — ARK is domain-agnostic.
+- **No specific hardware required.** ARK itself runs anywhere Claude Code runs. The experiments it generates depend on your domain — ML training may need a GPU, but backtesting or API optimization just needs a CPU.
 
 The core research loop is identical to Karpathy's. ARK wraps it with better onboarding, better visualization, and an educational layer that helps you understand your results.
 
