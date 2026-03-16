@@ -14,6 +14,7 @@ export interface Phase {
 export interface MetricConfig {
   primary: string;
   direction: "lower" | "higher";
+  explanation?: string;
   floors: Record<string, Floor>;
   phases: Phase[] | null;
   composite_formula: string | null;

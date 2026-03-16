@@ -123,6 +123,7 @@ Create `kit.json` with the full experiment config:
   "metric": {
     "primary": "<metric_name>",
     "direction": "<lower|higher>",
+    "explanation": "<plain-language explanation of what this metric measures, why the direction matters, and what a good vs bad value looks like — written for a non-expert>",
     "floors": { ... },
     "phases": null or [ ... ],
     "composite_formula": null

@@ -727,10 +727,16 @@ function ExperimentSummary({
             </div>
           )}
           <div>
-            <div className="text-[0.7rem] uppercase tracking-wider text-[var(--text2)] mb-1">Primary Metric</div>
+            <div className="text-[0.7rem] uppercase tracking-wider text-[var(--text2)] mb-1">What We're Measuring</div>
             <div className="text-[var(--text)]">
-              <span className="font-semibold text-[var(--amber)]">{activeMetric}</span>
-              <span className="text-[var(--text2)]"> — {activeDirection} is better</span>
+              {kit.metric.explanation ? (
+                <span>{kit.metric.explanation}</span>
+              ) : (
+                <>
+                  <span className="font-semibold text-[var(--amber)]">{activeMetric}</span>
+                  <span className="text-[var(--text2)]"> — {activeDirection} is better</span>
+                </>
+              )}
             </div>
           </div>
           {floorEntries.length > 0 && (

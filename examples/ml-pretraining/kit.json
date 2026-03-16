@@ -6,6 +6,7 @@
   "metric": {
     "primary": "val_bpb",
     "direction": "lower",
+    "explanation": "We're measuring how well the model predicts text, using bits-per-byte (val_bpb). Lower means the model is better at predicting what comes next in a sentence. A drop from 1.0 to 0.95 means the model got noticeably better at generating coherent text.",
     "floors": {},
     "phases": null,
     "composite_formula": null

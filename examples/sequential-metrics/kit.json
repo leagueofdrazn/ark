@@ -6,6 +6,7 @@
   "metric": {
     "primary": "val_loss",
     "direction": "lower",
+    "explanation": "We're measuring how wrong the model's predictions are (validation loss). Lower means fewer mistakes. Once the model is making few enough mistakes (loss below 2.0), we switch focus to accuracy — how often it gets the answer exactly right.",
     "floors": {},
     "phases": [
       {

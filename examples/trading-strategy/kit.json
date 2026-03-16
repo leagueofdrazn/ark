@@ -6,6 +6,7 @@
   "metric": {
     "primary": "net_sharpe",
     "direction": "higher",
+    "explanation": "We're measuring how much money the strategy makes relative to the risk it takes (Sharpe ratio). A higher number means better returns for less uncertainty. A Sharpe of 1.0 means you earn $1 for every $1 of risk — above 1.0 is good, above 1.5 is strong.",
     "floors": {
       "net_sharpe": {"value": 0.5, "direction": "higher"},
       "max_drawdown": {"value": 0.15, "direction": "lower"},
