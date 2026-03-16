@@ -257,7 +257,7 @@ Print a completion banner:
   [Baseline (verified)]
     [<metric>: <value>]
 
-  Next steps (open a new session in <output_dir>):
+  Next steps:
     /ark:go             ← launch dashboard + start experimenting
     /ark:run            ← start experimenting (without dashboard)
     /ark:dashboard      ← open dashboard (without experimenting)
