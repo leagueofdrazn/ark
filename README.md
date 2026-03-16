@@ -51,6 +51,14 @@ The installer auto-detects your runtimes and installs for each one. Verify with:
 - Gemini: `/ark:help`
 - Codex: `$ark-help`
 
+### Staying Updated
+
+Re-run the same command to update:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/leagueofdrazn/ark/main/install.sh | sh
+```
+
 ### Recommended: Skip Permissions Mode
 
 ARK is designed for autonomous overnight experiments. Run Claude Code with:
