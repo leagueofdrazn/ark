@@ -267,8 +267,9 @@ Print a completion banner:
 
   Next steps:
     cd <output_dir>
-    /ark:run            ← start the experiment loop
-    /ark:dashboard      ← watch progress in browser
+    /ark:go             ← launch dashboard + start experimenting
+    /ark:run            ← start experimenting (without dashboard)
+    /ark:dashboard      ← open dashboard (without experimenting)
 ```
 
 </process>
