@@ -85,11 +85,13 @@ claude --dangerously-skip-permissions
 
 Each `/ark:new` creates an isolated experiment directory. Open multiple Claude Code sessions in different directories and run `/ark:run` in each — they won't interfere with each other. Each has its own results, journal, and dashboard.
 
-## The onboarding conversation
+## How it works
+
+### 1. The onboarding conversation
 
 `/ark:new` starts a conversation where you describe your goal and the AI designs everything else — metrics, evaluation code, data strategy, time budget. It detects your hardware, pushes back if your approach won't work, and explains what it's doing in plain language. You confirm the design, and it scaffolds the entire experiment.
 
-## The research loop
+### 2. The research loop
 
 Once scaffolded, `/ark:run` follows the standard autoresearch pattern:
 
@@ -107,7 +109,7 @@ LOOP FOREVER:
 
 The agent runs autonomously until you interrupt it. If each experiment takes 5 minutes, that's ~12/hour, ~100 overnight. You wake up to a full log of experiments and a journal of what worked and what didn't.
 
-## The dashboard
+### 3. The dashboard
 
 `/ark:dashboard` launches a real-time Next.js dashboard:
 
@@ -120,7 +122,7 @@ The agent runs autonomously until you interrupt it. If each experiment takes 5 m
 - Diminishing returns detection
 - Light/dark mode, live auto-refresh every 2 seconds
 
-## Understanding your results
+### 4. Understanding your results
 
 `/ark:report` doesn't just show numbers — it teaches you what they mean:
 
