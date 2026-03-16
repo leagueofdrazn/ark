@@ -59,7 +59,7 @@ ARK is designed for autonomous overnight experiments. Run Claude Code with:
 claude --dangerously-skip-permissions
 ```
 
-Without this, the agent will pause for permission on every file edit and command — breaking the autonomous loop.
+> **Tip:** This is how ARK is intended to be used — stopping to approve every `git commit` and `python train.py` across 100 experiments overnight defeats the purpose.
 
 ### Use
 
