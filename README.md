@@ -42,10 +42,17 @@ No GPU required. No API keys.
 
 ### Recommended: Skip Permissions Mode
 
-ARK is designed for autonomous overnight experiments. Run Claude Code with:
+ARK is designed for autonomous overnight experiments. Run your agent with permissions disabled:
 
 ```bash
+# Claude Code
 claude --dangerously-skip-permissions
+
+# Gemini
+gemini --yolo
+
+# Codex
+codex --full-auto
 ```
 
 > **Tip:** This is how ARK is intended to be used — stopping to approve every `git commit` and `python train.py` across 100 experiments overnight defeats the purpose.
