@@ -169,7 +169,12 @@ export default function Dashboard() {
               />
             </div>
             Live
-            <span title="Auto-refreshes data every 2 seconds so you can watch experiments in real time. Turn off to freeze the view." className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full border border-[var(--border-accent)] text-[0.6rem] text-[var(--text3)] cursor-help">i</span>
+            <span className="relative group">
+              <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full border border-[var(--border-accent)] text-[0.6rem] text-[var(--text3)] cursor-help">i</span>
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2.5 py-1.5 rounded bg-[var(--bg-card)] border border-[var(--border)] text-[0.65rem] text-[var(--text2)] whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50">
+                Auto-refreshes every 2s. Turn off to freeze the view.
+              </span>
+            </span>
           </label>
 
           <label className="flex items-center gap-2 text-xs text-[var(--text2)] cursor-pointer select-none">
