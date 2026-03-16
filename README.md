@@ -1,24 +1,24 @@
 # AutoResearch Kit (ARK)
 
-A companion to [Karpathy's autoresearch](https://github.com/karpathy/autoresearch) that makes autonomous AI research experiments accessible to everyone — not just ML engineers with GPUs.
+A companion to [Karpathy's autoresearch](https://github.com/karpathy/autoresearch) that helps you set up and run autonomous AI research experiments correctly — on any topic, on any hardware.
 
-Describe what you want to research in plain language. ARK designs the experiment, generates the code, and runs it autonomously overnight. You wake up to results.
+Describe what you want to research in plain language. ARK designs the experiment, generates the code, and runs it autonomously overnight. You wake up to results you can actually understand.
 
 ## Why ARK exists
 
 Karpathy's [autoresearch](https://github.com/karpathy/autoresearch) introduced a powerful idea: give an AI agent a codebase and let it experiment autonomously. Modify, run, evaluate, keep or discard, repeat. Sleep while it works. Wake up to progress.
 
-But the original is built for one specific use case — GPU-based LLM pretraining. Setting it up requires understanding metrics, evaluation harnesses, and the autoresearch loop pattern. If you're not an ML researcher, you're stuck.
+The hardest part isn't running the experiments — it's setting them up correctly. Choosing the right metric, designing a fair evaluation, knowing what constraints matter, writing a protocol the agent can follow. Get any of these wrong and you waste hours of compute on meaningless results.
 
-ARK generalizes autoresearch to **any domain** and removes the expertise barrier:
+ARK solves this by pairing you with an AI researcher that helps you design the experiment correctly, then teaches you what the results mean as they come in:
 
-- **You don't need to know what metric to optimize.** ARK figures it out from your goal.
-- **You don't need a GPU.** It works on any hardware — MacBooks, cloud VMs, CPUs.
-- **You don't need to write a program.md from scratch.** ARK designs it with you.
-- **You don't need to read raw TSV logs.** A live dashboard shows what's happening.
-- **You don't need to understand the numbers.** `/ark:status` translates results back to your original goal in plain language.
+- **You have a goal, ARK helps you get there.** Describe what you want in plain language — ARK figures out the right metrics, constraints, and methodology.
+- **You learn along the way.** ARK explains what it's doing and why, translates results into plain language, and teaches you best practices for interpreting statistical outcomes.
+- **You don't need to write a program.md from scratch.** ARK designs it with you through conversation, pushing back if your approach won't work.
+- **You don't need to read raw TSV logs.** A live dashboard shows what's happening, and `/ark:report` explains what the numbers mean in context.
+- **It works on any hardware.** MacBooks, cloud VMs, GPUs, CPUs — ARK is domain-agnostic.
 
-The core research loop is identical to Karpathy's. ARK just makes it easier to start and easier to understand.
+The core research loop is identical to Karpathy's. ARK wraps it with better onboarding, better visualization, and an educational layer that helps you understand your results.
 
 ## Who it's for
 
@@ -59,7 +59,7 @@ Open Claude Code in any project directory:
 ```
 /ark:new           # Design your experiment (interactive conversation)
 /ark:run           # Start the autonomous loop
-/ark:status        # Check progress + what it means
+/ark:report        # Check progress + what it means
 /ark:dashboard     # Watch live in browser
 ```
 
@@ -145,15 +145,19 @@ The agent runs autonomously until you interrupt it. If each experiment takes 5 m
 
 ## Understanding your results
 
-`/ark:status` doesn't just show numbers — it translates them back to your original goal:
+`/ark:report` doesn't just show numbers — it teaches you what they mean:
 
 ```
-/ark:status
+/ark:report
 
 ════════════════════════════════════════════════════════
-  ARK — mlx-pretraining
+  ARK Report — mlx-pretraining
   Mar 17 · 47 experiments
 ════════════════════════════════════════════════════════
+
+  Your goal:
+  Train the best language model possible on an M4 Max MacBook
+  with a 5-minute compute budget per experiment.
 
   val_bpb
     Best:        0.9432  (experiment #41)
@@ -161,16 +165,25 @@ The agent runs autonomously until you interrupt it. If each experiment takes 5 m
     Improvement: +5.5%
 
   What this means:
-  You wanted the best language model possible in 5-minute runs.
-  The model's prediction accuracy improved 5.5% from baseline,
-  which means it generates noticeably more coherent text. The
-  biggest win came from switching to a rotary position encoding.
+  val_bpb (bits per byte) measures how well the model predicts
+  text — lower means better predictions. A 5.5% improvement means
+  the model generates noticeably more coherent text. The biggest
+  win came from switching to rotary position encoding.
 
   What's working:
-  - Rotary embeddings outperform learned positions (confirmed 4x)
-  - Smaller batch sizes with more steps improve convergence
+  - Rotary embeddings outperform learned positions (confirmed 4x).
+    This works because rotary encodings let the model understand
+    relative word positions rather than memorizing absolute ones.
+  - Smaller batch sizes with more gradient steps improve convergence.
 
-  Momentum: Still improving — last 10 experiments found 2 gains.
+  How to read these results:
+  A keep rate of 13% (6 out of 47) is normal — most experiments
+  in any research are dead ends. What matters is that each kept
+  experiment improved on the last. The last 10 experiments found
+  2 gains, which means the agent is still finding improvements
+  but they're getting smaller.
+
+  Momentum: Still improving.
 
   Recent:
     #47  discard  val_bpb=0.9440  wider FFN (4x instead of 3x)
@@ -230,7 +243,7 @@ ARK supports three metric patterns, chosen automatically during onboarding:
 |---------|-------------|
 | `/ark:new` | Design and scaffold a new experiment (interactive conversation) |
 | `/ark:run` | Start the autonomous experiment loop. Runs until interrupted |
-| `/ark:status` | Progress report — numbers + what they mean for your goal |
+| `/ark:report` | Progress report — results, what they mean, and what you should know |
 | `/ark:dashboard` | Launch the visual dashboard in browser |
 | `/ark:help` | Show all commands |
 
@@ -248,7 +261,7 @@ ARK is a companion, not a replacement. Here's how the pieces map:
 | Expert researcher writes setup | AI helps non-experts design experiments |
 | Read raw TSV logs | Live dashboard + plain-language status reports |
 
-The core protocol is identical. ARK adds: the onboarding conversation, the journal system, `laws.md` (protocol rules separated from domain config), floor constraints, sequential phases, the dashboard, and `/ark:status` for non-expert-friendly results.
+The core protocol is identical. ARK adds: the onboarding conversation, the journal system, `laws.md` (protocol rules separated from domain config), floor constraints, sequential phases, the dashboard, and `/ark:report` for non-expert-friendly results.
 
 ## Requirements
 

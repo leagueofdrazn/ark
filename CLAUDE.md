@@ -13,7 +13,7 @@ It does NOT replace autoresearch. It supplements it with a better front door and
 - `/ark:new` — Claude Code slash command. Interactive conversation that designs the experiment and scaffolds all files.
 - `/ark:run` — Claude Code slash command. Starts the autonomous experiment loop.
 - `/ark:dashboard` — Claude Code slash command. Launches the Next.js dashboard.
-- `/ark:status` — Claude Code slash command. Quick terminal-based progress check.
+- `/ark:report` — Claude Code slash command. Quick terminal-based progress check.
 - `dashboard/` — Next.js 16 + React 19 + Recharts + Tailwind CSS. Reads `kit.json` + TSV files + `events.log` via API route.
 - `templates/` — Universal templates rendered during onboarding (program.md, journal.md, claude.md, etc.)
 - `examples/` — Example kit.json + program.md for different domains (not runnable)
