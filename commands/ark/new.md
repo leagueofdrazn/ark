@@ -222,6 +222,8 @@ git add .
 git commit -m "Scaffold: <experiment-name>"
 ```
 
+**Stay in the experiment directory after scaffolding.** Do not `cd` back. This ensures `/ark:go`, `/ark:run`, and `/ark:dashboard` will find `kit.json` if the user runs them in the same session.
+
 ## Phase 6: Run Baseline (Optional)
 
 Ask the user if they want to run a baseline validation now:
