@@ -75,7 +75,7 @@ curl -fsSL https://raw.githubusercontent.com/leagueofdrazn/ark/main/install.sh |
 /ark:help          # Show all commands
 ```
 
-`/ark:new` is the only setup step — describe your goal and ARK designs everything. After that, you can use slash commands or just talk to Claude normally. Ask "how's my experiment going?" and it reads the experiment files and answers.
+`/ark:new` is the only setup step — describe your goal and ARK designs everything. After that, you can use slash commands or just ask your agent directly. Ask "how's my experiment going?" and it reads the experiment files and answers.
 
 ## How it works
 

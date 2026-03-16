@@ -1,4 +1,4 @@
-# {experiment_name} — Project Context for Claude Code
+# {experiment_name} — Agent Context
 
 ## What This Is
 

@@ -16,7 +16,7 @@ Print the following help text exactly:
 ```
 ═══════════════════════════════════════════════════════════
   ARK — AutoResearch Kit
-  Autonomous research experiments powered by Claude Code
+  Autonomous research experiments powered by AI
 ═══════════════════════════════════════════════════════════
 
   COMMANDS
