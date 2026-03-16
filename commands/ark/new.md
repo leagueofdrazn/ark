@@ -160,7 +160,6 @@ Key sections to fill:
 - `{eval_command}` — how to run experiments
 - `{parse_command}` — how to extract metrics
 - `{time_budget_min}` — minutes per experiment
-- `{timeout_min}` — kill threshold
 - `{tsv_header}` — tab-separated column names
 - `{columns_description}` — what each column means
 - `{branch_pattern}` — git branch naming

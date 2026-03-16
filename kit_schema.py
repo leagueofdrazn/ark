@@ -31,7 +31,7 @@ import os
 #     },
 #
 #     # Pattern 2: Sequential phases (optional, overrides primary when present)
-#     "phases": [                     # ordered list, agent auto-transitions
+#     "phases": [                     # ordered list, human approves transitions
 #       {
 #         "name": "convergence",
 #         "metric": "val_loss",
@@ -55,7 +55,7 @@ import os
 #   -- Experiment structure --
 #
 #   "eval_command": "uv run train.py",        # how to run one experiment
-#   "parse_metric": "grep '^val_bpb:' run.log",  # how to extract primary metric
+#   "parse_command": "grep '^val_bpb:' run.log",  # how to extract primary metric
 #   "mutable_files": ["train.py"],            # what the agent can modify
 #   "immutable_files": ["prepare.py"],        # what must not be touched
 #   "read_files": ["program.md", "journal.md"],  # what to read each session
@@ -226,8 +226,8 @@ def get_current_phase(kit, events_log_path=None):
     if events_log_path and os.path.isfile(events_log_path):
         with open(events_log_path) as f:
             for line in f:
-                if "PHASE_GATE" in line:
-                    # Each PHASE_GATE event advances to the next phase
+                if "PHASE_ADVANCE" in line:
+                    # Each PHASE_ADVANCE event advances to the next phase
                     current_index += 1
 
     # Clamp to valid range

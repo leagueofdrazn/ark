@@ -15,7 +15,7 @@
     "composite_formula": null
   },
   "eval_command": "uv run python backtester/backtester.py strategies/momentum.py",
-  "parse_metric": "uv run python backtester/backtester.py strategies/momentum.py 2>/dev/null | head -1",
+  "parse_command": "uv run python backtester/backtester.py strategies/momentum.py 2>/dev/null | head -1",
   "mutable_files": ["strategies/momentum.py"],
   "immutable_files": ["backtester/backtester.py", "backtester/evaluator.py", "config/risk_limits.yaml"],
   "read_files": ["program.md", "journal.md", "config/risk_limits.yaml"],

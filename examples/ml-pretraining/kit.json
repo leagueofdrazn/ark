@@ -11,7 +11,7 @@
     "composite_formula": null
   },
   "eval_command": "uv run train.py",
-  "parse_metric": "grep '^val_bpb:' run.log",
+  "parse_command": "grep '^val_bpb:' run.log",
   "mutable_files": ["train.py"],
   "immutable_files": ["prepare.py"],
   "read_files": ["program.md", "journal.md"],

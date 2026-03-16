@@ -55,7 +55,7 @@ After each experiment:
 
 ## Logging
 
-After every experiment, append one tab-separated row to both TSV files:
+After every experiment, append one tab-separated row to `results.tsv`:
 
 ```
 {tsv_header}
@@ -66,7 +66,7 @@ Use `DISCARDED` as the commit hash for reset experiments.
 ## Session Start Checklist
 
 1. `git checkout -b {branch_pattern}` (e.g., `{branch_example}`)
-2. {data_verify_step}
+2. {data_verify_instruction}
 3. Read `journal.md`
 4. Read `results.tsv` (last 10 rows: `tail -10 results.tsv`)
 5. Read the mutable file(s)

@@ -79,7 +79,7 @@ Follow the experiment loop from program.md. This is a FOREVER loop:
 - [ ] Session setup completed (branch, data verification)
 - [ ] Baseline established (if first session)
 - [ ] Experiment loop running autonomously
-- [ ] Results logged to both TSV files after each experiment
+- [ ] Results logged to results.tsv after each experiment
 - [ ] Journal updated with significant findings
 - [ ] Events logged for major milestones
 </success_criteria>

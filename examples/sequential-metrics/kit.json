@@ -28,7 +28,7 @@
     "composite_formula": null
   },
   "eval_command": "uv run train.py",
-  "parse_metric": "grep '^val_loss:\\|^val_accuracy:' run.log",
+  "parse_command": "grep '^val_loss:\\|^val_accuracy:' run.log",
   "mutable_files": ["train.py"],
   "immutable_files": ["prepare.py", "evaluate.py"],
   "read_files": ["program.md", "journal.md"],
@@ -41,5 +41,5 @@
   "data_verify_command": "ls data/cifar-100/",
   "branch_pattern": "autoresearch/{tag}",
   "context": "Image classification on CIFAR-100. Two-phase experiment: first get the model to converge reliably (val_loss below 2.0), then switch to maximizing classification accuracy while keeping loss stable.",
-  "goals": "Phase 1: Minimize val_loss until below 2.0. Phase 2: Maximize val_accuracy with val_loss floor at 2.5. The agent automatically transitions when the gate condition is met."
+  "goals": "Phase 1: Minimize val_loss until below 2.0. Phase 2: Maximize val_accuracy with val_loss floor at 2.5. The agent flags when a gate condition is met, and the human approves the transition."
 }

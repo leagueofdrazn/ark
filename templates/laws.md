@@ -65,6 +65,7 @@ Event types:
 - `SESSION_START` — new session begins (log tag, baseline metric)
 - `BASELINE` — baseline established (log metric value)
 - `INSIGHT` — significant finding worth highlighting (log what was learned)
+- `PHASE_ADVANCE` — the human approved a phase transition (log old metric, new metric, reason)
 - `FLAG` — the agent has a recommendation for the human. Write the description in plain language so a non-expert understands what's happening and why it matters (e.g. "Improvements have nearly stopped — the last 15 experiments only moved the metric by 0.001. This usually means we've found the best result this approach can achieve. Consider trying a fundamentally different strategy."). The agent keeps running — this is a note for the human to review later.
 - `SESSION_END` — session complete (log final best, experiments run, keeps)
 

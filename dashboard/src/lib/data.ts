@@ -145,7 +145,7 @@ export function isResearchActive(): boolean {
 }
 
 function countPhaseGates(events: EventEntry[]): number {
-  return events.filter((e) => e.type === "PHASE_GATE").length;
+  return events.filter((e) => e.type === "PHASE_ADVANCE").length;
 }
 
 export function loadAll(): DashboardData {

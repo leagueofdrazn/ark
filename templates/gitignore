@@ -10,10 +10,8 @@ build/
 venv/
 
 results.tsv
-events.log
 run.log
-*.log
+events.log
 
 .DS_Store
 .cache/
-.streamlit/

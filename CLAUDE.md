@@ -56,7 +56,7 @@ dashboard/
 
 The bridge between onboarding and dashboard. Supports three metric patterns:
 - **Simple**: single primary metric + direction + optional floors
-- **Sequential**: ordered phases with gate conditions (auto-transition)
+- **Sequential**: ordered phases with gate conditions (human-approved transitions)
 - **Composite**: formula combining multiple metrics into one scalar
 
 ## Working On This Repo
