@@ -36,14 +36,14 @@ Find the ARK dashboard:
 2. Check `~/.ark/dashboard/`
 3. If not found, skip the dashboard and warn: "Dashboard not found — running experiment only."
 
-If found, launch in the background:
+If found, launch in the background and let Next.js auto-select a port if 3000 is taken:
 ```bash
-cd <dashboard_dir> && EXP_DIR=<absolute_exp_dir> npm run dev > /dev/null 2>&1 &
+cd <dashboard_dir> && EXP_DIR=<absolute_exp_dir> npm run dev &
 ```
 
-Print one line:
+Wait a few seconds, then check the output for the actual port (Next.js prints `- Local: http://localhost:XXXX`). Print one line with the correct port:
 ```
-Dashboard: http://localhost:3000
+Dashboard: http://localhost:<port>
 ```
 
 ## Step 3: Start Experiment Loop
