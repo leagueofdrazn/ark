@@ -15,7 +15,7 @@ Your job in this session: **{goal_statement}**. Read `program.md` for the full m
 {immutable_files_list}
 - `program.md` — research protocol. Read every session, NEVER modify.
 - `laws.md` — autoresearch laws. Read every session, NEVER modify.
-- `CLAUDE.md` — this file. NEVER modify.
+- `CLAUDE.md` / `AGENTS.md` — this file. NEVER modify.
 - `kit.json` — experiment config. NEVER modify.
 
 ### READ — consult these every session

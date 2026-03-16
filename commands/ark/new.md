@@ -175,8 +175,8 @@ Key sections to fill:
 - `{direction_text}` — "lowest possible" or "highest possible"
 - `{tag}` — default tag
 
-### 5e. Write CLAUDE.md
-Read the claude.md template and fill in all placeholders. This is what future Claude Code sessions read for context.
+### 5e. Write agent context files
+Read the claude.md template and fill in all placeholders. Write the result as BOTH `CLAUDE.md` (for Claude Code) and `AGENTS.md` (for Codex and other agents). Same content, two filenames — so every runtime finds its context file.
 
 ### 5f. Write journal.md
 Copy the journal template as-is.
