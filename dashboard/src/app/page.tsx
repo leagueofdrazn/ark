@@ -388,7 +388,6 @@ function ProgressChart({
             tick={{ fill: "var(--text3)", fontSize: 10 }}
             stroke="var(--border)"
             domain={["auto", "auto"]}
-            reversed={!higherIsBetter}
           />
           <Tooltip
             contentStyle={{
