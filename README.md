@@ -6,7 +6,7 @@ Describe what you want to research in plain language. ARK designs the experiment
 
 ## Why ARK exists
 
-Karpathy's [autoresearch](https://github.com/karpathy/autoresearch) introduced a powerful idea: give an AI agent a codebase and let it experiment autonomously. Modify, run, evaluate, keep or discard, repeat. Sleep while it works. Wake up to progress.
+Karpathy's [autoresearch](https://github.com/karpathy/autoresearch) introduced a powerful idea: let the AI be the researcher, not just the engineer. The agent forms hypotheses, tests them, evaluates results, keeps what works, discards what doesn't, and builds knowledge over time. The human becomes the research director — defining what to investigate — while the AI runs hundreds of experiments autonomously. Sleep while it works. Wake up to progress.
 
 The hardest part isn't running the experiments — it's setting them up correctly. Choosing the right metric, designing a fair evaluation, knowing what constraints matter, writing a protocol the agent can follow. Get any of these wrong and you waste hours of compute on meaningless results.
 
