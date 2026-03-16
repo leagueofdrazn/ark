@@ -354,13 +354,14 @@ function ProgressChart({
           {experiments.length} Experiments, {kept} Kept
         </div>
         <div className="flex-1" />
+        <span className="text-xs text-[var(--text3)]">View:</span>
         <select
           value={metricKey}
           onChange={(e) => setMetricKey(e.target.value)}
           className="text-xs bg-[var(--bg)] border border-[var(--border)] rounded px-2 py-1 text-[var(--text)] outline-none"
         >
           {metricCols.map((col) => (
-            <option key={col} value={col}>{col}</option>
+            <option key={col} value={col}>{col}{col === defaultMetric ? " (primary)" : ""}</option>
           ))}
         </select>
       </div>
