@@ -23,11 +23,13 @@ ARK solves this by pairing you with an AI researcher that helps you design the e
 
 ### Install
 
+Open a terminal and run:
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/leagueofdrazn/ark/main/install.sh | sh
 ```
 
-The installer auto-detects your runtimes and installs for each one. Verify with:
+This installs ARK globally — the `/ark:` commands will be available in every session, in any project directory. The installer auto-detects your runtimes and installs for each one. Verify with:
 
 - Claude Code / Copilot: `/ark:help`
 - Gemini: `/ark:help`
