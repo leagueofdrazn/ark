@@ -28,9 +28,9 @@ If neither exists, proceed without them — you know the formats.
 <ux-rules>
 **CRITICAL: Do not narrate setup steps.** Do not say "Let me find the installation", "Reading templates", "Starting session", or anything similar. Silently read templates and go straight to the banner + first question. The user should see NOTHING before the banner.
 
-**The first question must be completely open-ended.** When calling AskUserQuestion for the initial goal, do NOT pass any `suggestions` parameter — leave it empty so the user gets a plain text input with no predefined options. Let them describe their goal in their own words.
+**The first question must be completely open-ended.** Do NOT use AskUserQuestion for the initial goal question. Instead, include the question directly in your text output after the banner (e.g. "What do you want to research, test, or optimize?") and wait for the user to respond naturally. No tool call, no suggestions, no options — just text.
 
-**Follow-up questions must be insightful and specific to the user's answer.** After the user describes their goal, every follow-up question should be directly informed by what they said — digging into the specifics of *their* problem, not asking generic setup questions. Predefined choices are fine for follow-ups when the options are genuinely relevant to the user's stated goal.
+**Follow-up questions must be insightful and specific to the user's answer.** After the user describes their goal, every follow-up question should be directly informed by what they said — digging into the specifics of *their* problem, not asking generic setup questions. You MAY use AskUserQuestion for follow-ups when predefined choices are genuinely relevant to the user's stated goal.
 </ux-rules>
 
 <process>
@@ -54,7 +54,7 @@ Print the banner, then immediately ask the user what they want to work on:
   and code.
 ```
 
-Then ask the user what they want to work on using AskUserQuestion. Keep it open-ended — just a simple question with NO predefined options, NO category suggestions, NO numbered lists. Let them describe their goal in their own words.
+Then ask the user what they want to work on as plain text — do NOT call AskUserQuestion here. Just end your message with the question and wait for the user to type their answer.
 
 **Your role as the expert:**
 
