@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+.env
+.venv/
+venv/
+ENV/
+
+.cache/
+
+# Dashboard
+dashboard/node_modules/
+dashboard/.next/
+
+run.log
+.DS_Store
+uv.lock

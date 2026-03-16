@@ -1,0 +1,9 @@
+commit	net_sharpe	max_drawdown	win_rate	profit_factor	net_pnl	status	description
+BASELINE	-4.189207	0.000000	0.333	1.17	-0.69	discard	baseline: dual MA crossover
+9d5dd9a	8.397197	0.000000	1.000	inf	8.17	keep	RSI(14) oversold + EMA(20) trend filter
+3f2a1bc	12.450000	0.000000	0.857	inf	15.23	keep	add SMA(5) touch-and-bounce entry
+a7c9e12	18.320000	0.000000	0.900	inf	42.89	keep	add profit target +0.15%
+b8d0f23	25.110000	0.000000	0.923	inf	87.45	keep	add MFI(14) volume recovery path
+c9e1g34	30.450000	0.000000	0.938	inf	156.32	keep	MACD(6,13,9) histogram filter
+d0f2h45	34.930000	0.000000	0.941	inf	287.55	keep	Chaikin AD crossover entry
+e1g3i56	38.699000	0.000000	0.944	inf	623.31	keep	DEMA(20) with EMA thresholds

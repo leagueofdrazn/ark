@@ -1,0 +1,4 @@
+2026-03-16T10:00:00 SESSION_START tag=mar16, model=mlx-pretraining
+2026-03-16T10:00:30 1 BASELINE val_bpb=0.997900
+2026-03-16T10:35:00 8 INSIGHT RMSNorm + SwiGLU combination provides consistent 0.002-0.004 bpb improvement per change
+2026-03-16T11:10:00 15 INSIGHT Sliding window attention (SSSL pattern) reduces memory without hurting val_bpb

@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #F7F7FA;
+  --bg-card: #FFFFFF;
+  --bg-secondary: #EBEBF0;
+  --border: #DCDCE5;
+  --border-accent: #C8C8D4;
+  --amber: #A07710;
+  --amber-dim: #7A5C0E;
+  --green: #15803D;
+  --green-dim: #166534;
+  --red: #DC2626;
+  --red-dim: #991B1B;
+  --text: #1C1C2E;
+  --text2: #5C5C72;
+  --text3: #9090A4;
+  --chart-grid: #DCDCE5;
+  --chart-fill: rgba(160, 119, 16, 0.07);
+  --table-header: #EBEBF0;
+  --table-row-even: #FFFFFF;
+  --table-row-odd: #F7F7FA;
+  --table-hover: #EBEBF0;
+  --code-bg: #EBEBF0;
+  --scrollbar-thumb: #C8C8D4;
+  --scrollbar-track: #F7F7FA;
+  --violet: #7C3AED;
+  --violet-dim: #5B21B6;
+}
+
+.dark {
+  --bg: #0C0C14;
+  --bg-card: #141420;
+  --bg-secondary: #1A1A2E;
+  --border: #1E1E30;
+  --border-accent: #2A2A40;
+  --amber: #D4A017;
+  --amber-dim: #8B6914;
+  --green: #16A34A;
+  --green-dim: #15803D;
+  --red: #DC2626;
+  --red-dim: #991B1B;
+  --text: #E8E8EF;
+  --text2: #7A7A8E;
+  --text3: #4A4A5E;
+  --chart-grid: #1E1E30;
+  --chart-fill: rgba(212, 160, 23, 0.06);
+  --table-header: #1A1A2E;
+  --table-row-even: #111119;
+  --table-row-odd: #0C0C14;
+  --table-hover: #1E1E30;
+  --code-bg: #141420;
+  --scrollbar-thumb: #2A2A40;
+  --scrollbar-track: #0C0C14;
+  --violet: #A78BFA;
+  --violet-dim: #7C3AED;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "JetBrains Mono", "SF Mono", "Fira Code", Consolas, monospace;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 4px var(--green); }
+  50% { opacity: 0.4; box-shadow: 0 0 8px var(--green); }
+}
+.dot-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}

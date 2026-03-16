@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "spy-momentum",
+  "description": "Autonomous SPY day trading strategy research with walk-forward validation",
+  "created_at": "2026-03-12T20:00:00Z",
+  "metric": {
+    "primary": "net_sharpe",
+    "direction": "higher",
+    "floors": {
+      "net_sharpe": {"value": 0.5, "direction": "higher"},
+      "max_drawdown": {"value": 0.15, "direction": "lower"},
+      "win_rate": {"value": 0.40, "direction": "higher"}
+    },
+    "phases": null,
+    "composite_formula": null
+  },
+  "eval_command": "uv run python backtester/backtester.py strategies/momentum.py",
+  "parse_metric": "uv run python backtester/backtester.py strategies/momentum.py 2>/dev/null | head -1",
+  "mutable_files": ["strategies/momentum.py"],
+  "immutable_files": ["backtester/backtester.py", "backtester/evaluator.py", "config/risk_limits.yaml"],
+  "read_files": ["program.md", "journal.md", "config/risk_limits.yaml"],
+  "write_files": ["results.tsv", "journal.md", "events.log"],
+  "columns": ["commit", "net_sharpe", "max_drawdown", "win_rate", "profit_factor", "net_pnl", "status", "description"],
+  "status_values": ["baseline", "keep", "discard", "crash"],
+  "time_budget_minutes": 1,
+  "timeout_minutes": 3,
+  "data_description": "1-minute SPY bars from Alpaca, cached as monthly parquet files",
+  "data_verify_command": "ls data/cache/bars/SPY_1min_*.parquet",
+  "branch_pattern": "research/{tag}",
+  "context": "Autonomous trading strategy research for SPY day trading. Walk-forward backtester with 2 training windows + holdout. Transaction costs included (commission + slippage). Strategy must pass hard floor constraints on every window.",
+  "goals": "Maximize net_sharpe (risk-adjusted returns) across all walk-forward windows. Hard floors: net_sharpe >= 0.5, max_drawdown <= 15%, win_rate >= 40%. Focus on entry/exit signal quality."
+}

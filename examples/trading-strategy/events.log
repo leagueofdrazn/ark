@@ -1,0 +1,6 @@
+2026-03-12T20:00:00 SESSION_START tag=0312-a, baseline=-4.189207 net_sharpe
+2026-03-12T20:01:00 1 BASELINE net_sharpe=-4.189207 (dual MA crossover, discarded — below floor)
+2026-03-12T20:02:30 2 INSIGHT RSI(14) oversold recovery is a much stronger signal than MA crossover for 1-min SPY
+2026-03-12T21:30:00 150 INSIGHT SMA touch-and-bounce is the strongest entry paradigm — near 100% win rate across all windows
+2026-03-13T01:00:00 749 INSIGHT MACD(6,13,9) histogram filter on oscillator paths fixes holdout floor violations without blocking good entries
+2026-03-13T03:00:00 1200 INSIGHT Diminishing returns — 500 experiments since last improvement. All new MA variants tested add zero unique trades

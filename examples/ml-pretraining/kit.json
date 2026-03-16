@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "mlx-pretraining",
+  "description": "Small GPT pretraining on Apple Silicon with MLX backend",
+  "created_at": "2026-03-16T10:00:00Z",
+  "metric": {
+    "primary": "val_bpb",
+    "direction": "lower",
+    "floors": {},
+    "phases": null,
+    "composite_formula": null
+  },
+  "eval_command": "uv run train.py",
+  "parse_metric": "grep '^val_bpb:' run.log",
+  "mutable_files": ["train.py"],
+  "immutable_files": ["prepare.py"],
+  "read_files": ["program.md", "journal.md"],
+  "write_files": ["results.tsv", "journal.md", "events.log"],
+  "columns": ["commit", "val_bpb", "memory_gb", "num_params_M", "status", "description"],
+  "status_values": ["baseline", "keep", "discard", "crash"],
+  "time_budget_minutes": 5,
+  "timeout_minutes": 10,
+  "data_description": "HuggingFace climbmix-400b-shuffle, first 10 shards",
+  "data_verify_command": "ls ~/.cache/autoresearch/",
+  "branch_pattern": "autoresearch/{tag}",
+  "context": "Small GPT pretraining experiment on Apple M4 Max. Exploring model architecture, optimizer, and hyperparameter choices to minimize validation loss under a fixed 5-minute compute budget.",
+  "goals": "Minimize val_bpb (validation bits-per-byte). Everything in train.py is fair game: architecture, optimizer, hyperparameters, batch size, model size."
+}

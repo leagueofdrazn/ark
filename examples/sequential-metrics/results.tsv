@@ -1,0 +1,10 @@
+commit	val_loss	val_accuracy	num_params_M	status	description
+BASELINE	4.605000	0.012	2.1	baseline	baseline ResNet-18 with random init
+a1b2c3d	3.890000	0.058	2.1	keep	add learning rate warmup
+b2c3d4e	3.210000	0.112	2.1	keep	switch to AdamW optimizer
+c3d4e5f	2.780000	0.185	3.4	keep	increase model width 1.5x
+d4e5f6g	2.340000	0.234	3.4	keep	add data augmentation (random crop + flip)
+e5f6g7h	1.950000	0.298	3.4	keep	cosine annealing LR schedule
+f6g7h8i	1.950000	0.312	3.4	keep	[PHASE 2] add label smoothing 0.1
+g7h8i9j	1.920000	0.335	3.4	keep	mixup augmentation alpha=0.2
+h8i9j0k	1.880000	0.358	4.8	keep	add squeeze-excite blocks
