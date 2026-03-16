@@ -69,6 +69,17 @@ Event types:
 - `INSIGHT` — significant finding worth highlighting (log what was learned)
 - `SESSION_END` — session complete (log final best, experiments run, keeps)
 
+## Phase Transitions
+
+If the experiment has multiple phases (defined in `program.md`), each phase has a gate condition — a threshold the primary metric must cross before moving to the next phase. When the gate is met:
+
+1. Log a `PHASE_GATE` event to `events.log` with the achieved value, the gate threshold, and which phase you're transitioning to.
+2. Switch your primary metric and direction to what the next phase specifies.
+3. Continue the experiment loop with the new metric — do NOT stop or ask the human.
+4. The previous phase's metric may become a floor constraint in the new phase (if specified in `program.md`). Respect it.
+
+Phase transitions are automatic. The agent detects them, logs them, and keeps going. The human sees them in the dashboard and event log.
+
 ## Journal Protocol
 
 The journal (`journal.md`) is your institutional memory across sessions. Update it during the experiment loop:
