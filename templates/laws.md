@@ -64,9 +64,8 @@ Log significant events to `events.log` in this format:
 Event types:
 - `SESSION_START` — new session begins (log tag, baseline metric)
 - `BASELINE` — baseline established (log metric value)
-- `PHASE_GATE` — phase transition triggered (log old metric, new target, reason)
-- `METRIC_SWITCH` — primary metric changed (log old→new)
 - `INSIGHT` — significant finding worth highlighting (log what was learned)
+- `FLAG` — the agent has a recommendation for the human (e.g. "consider shifting to a different metric", "diminishing returns detected", "floor constraint nearly violated"). The agent keeps running — this is a note for the human to review later.
 - `SESSION_END` — session complete (log final best, experiments run, keeps)
 
 ## Journal Protocol

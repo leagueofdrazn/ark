@@ -4,7 +4,6 @@
 # Event types:
 #   SESSION_START  — new research session begins
 #   BASELINE       — baseline metric established
-#   PHASE_GATE     — phase transition triggered (sequential experiments only)
-#   METRIC_SWITCH  — primary metric changed
 #   INSIGHT        — significant finding worth highlighting
+#   FLAG           — agent recommendation for human review
 #   SESSION_END    — session complete with summary

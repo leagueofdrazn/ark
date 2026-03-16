@@ -55,6 +55,17 @@ If floors: which are satisfied, which are not
 ════════════════════════════════════════════════════════
 ```
 
+### Flags
+If there are any `FLAG` events in events.log, show them FIRST — before anything else. These are the agent's recommendations that need human attention. Present each flag clearly:
+
+```
+  FLAGS (agent recommendations):
+  ⚑ [timestamp] <description>
+  ⚑ [timestamp] <description>
+```
+
+If there are no flags, skip this section entirely.
+
 ### Your goal
 Restate what the user asked for from kit.json context/goals in their own words. Remind them where this started.
 

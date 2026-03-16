@@ -242,7 +242,7 @@ export default function Dashboard() {
               defaultMetric={activeMetric}
               defaultDirection={activeDirection}
               allFloors={allFloors}
-              phaseGateExps={events.filter((e) => e.type === "PHASE_GATE").map((e) => e.exp_num).filter((n): n is number => n !== null)}
+              phaseGateExps={[]}
             />
           </>
         ) : (
@@ -646,11 +646,12 @@ function EventLog({ events }: { events: EventEntry[] }) {
   const [expanded, setExpanded] = useState(false);
 
   const colorMap: Record<string, string> = {
-    PHASE_GATE: "var(--violet)",
+    FLAG: "var(--amber)",
     KEEP: "var(--green)",
     BASELINE: "var(--green)",
     DISCARD: "var(--red)",
     CRASH: "var(--red)",
+    INSIGHT: "var(--violet)",
   };
 
   return (
