@@ -485,29 +485,40 @@ function FloorGauges({
       <SectionHead>Floor Constraints</SectionHead>
       <div className="grid grid-cols-3 gap-4">
         {Object.entries(floors).map(([name, floor]) => {
-          const val = latest[name] as number | undefined;
-          if (val === undefined) return null;
+          const raw = latest[name];
+          if (raw === undefined) return null;
 
-          const safe = floor.direction === "lower" ? val <= floor.value : val >= floor.value;
-          const margin = floor.direction === "lower" ? floor.value - val : val - floor.value;
-          const marginPct = floor.value !== 0 ? Math.abs(margin / floor.value) : 0;
+          // Handle boolean/equality floors (e.g., output_correct = true)
+          const isEqualityFloor = floor.direction === "equal";
+          const val = typeof raw === "number" ? raw : parseFloat(String(raw));
+          const isNumeric = !isNaN(val);
+
+          const safe = isEqualityFloor
+            ? String(raw) === String(floor.value)
+            : isNumeric && (floor.direction === "lower"
+              ? val <= (floor.value as number)
+              : val >= (floor.value as number));
 
           return (
             <div key={name} className="border border-[var(--border)] bg-[var(--bg-card)] rounded-md px-4 py-3">
               <div className="text-[0.7rem] uppercase tracking-wider text-[var(--text2)] mb-1">{name}</div>
               <div className={`text-xl ${safe ? "text-[var(--green)]" : "text-[var(--red)]"}`}>
-                {typeof val === "number" ? val.toFixed(4) : String(val)}
+                {isNumeric ? val.toFixed(4) : String(raw)}
               </div>
               <div className="text-xs text-[var(--text3)] mt-1">
-                {safe ? (marginPct < 0.2 ? "Warning: near floor" : "Safe") : "VIOLATES floor"}
-                {` (${floor.direction === "lower" ? "≤" : "≥"} ${floor.value})`}
+                {safe ? "Pass" : "FAIL"}
+                {isEqualityFloor
+                  ? ` (must equal ${floor.value})`
+                  : ` (${floor.direction === "lower" ? "≤" : "≥"} ${floor.value})`}
               </div>
-              <GaugeBar
-                label=""
-                value={val.toFixed(4)}
-                max={String(floor.value)}
-                pct={floor.direction === "lower" ? val / floor.value : floor.value / val}
-              />
+              {isNumeric && (
+                <GaugeBar
+                  label=""
+                  value={val.toFixed(4)}
+                  max={String(floor.value)}
+                  pct={floor.direction === "lower" ? val / (floor.value as number) : (floor.value as number) / val}
+                />
+              )}
             </div>
           );
         })}
