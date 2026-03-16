@@ -56,12 +56,11 @@ Then ask the user what they want to research using AskUserQuestion. Be conversat
 - If the approach won't work, explain why and offer alternatives.
 - Choose the methodology yourself — the user describes the goal, you design the experiment.
 
-**Gather these through conversation (NOT all at once — ask naturally):**
+**What to ask the user:**
 
-1. **What they want to achieve** — the research goal in plain language
-2. **What hardware/environment** — GPU, Apple Silicon, cloud, etc.
-3. **What data** — training data, test data, API endpoints, whatever is relevant
-4. **Time budget** — how long should each experiment take? (default: 5 minutes)
+1. **What they want to achieve** — the research goal in plain language. This is the only required input.
+
+Ask follow-up questions ONLY when you genuinely can't infer something from context. Don't ask about hardware (detect it), data (figure it out from the goal), or time budgets (determine from the domain). If you need clarification, ask one question at a time, naturally.
 
 **You must determine (the user does NOT need to know these terms):**
 - Primary metric name and direction (lower/higher is better)
@@ -70,6 +69,9 @@ Then ask the user what they want to research using AskUserQuestion. Be conversat
 - What the eval command should be
 - Which files are mutable vs immutable
 - What code needs to be generated
+- Time budget per experiment (based on the domain)
+- What hardware is available (detect from the system)
+- What data is needed and where to get it (infer from the goal)
 
 Ask 2-4 follow-up questions maximum. Do NOT ask all questions at once. Have a natural back-and-forth. After you understand enough, present your design.
 
