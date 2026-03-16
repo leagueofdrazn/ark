@@ -34,15 +34,7 @@ Read these files in order:
 4. `results.tsv` (last 20 rows) — recent experiment history
 6. `events.log` — recent events
 
-## Step 3: Launch Dashboard
-
-Start the dashboard in the background so the user can watch progress:
-1. Find the ARK dashboard directory (`~/.ark/dashboard/` or `./dashboard/`)
-2. Start it with the experiment directory: `cd <dashboard_dir> && EXP_DIR=<absolute_exp_dir> npm run dev &`
-3. Tell the user: "Dashboard running at http://localhost:3000"
-4. If the dashboard can't be found or npm isn't available, skip this step silently — the experiment loop is what matters.
-
-## Step 4: Session Setup
+## Step 3: Session Setup
 
 Follow the session setup checklist from program.md:
 1. Propose a run tag based on today's date
@@ -50,14 +42,14 @@ Follow the session setup checklist from program.md:
 3. Verify data exists (if data_verify_command is set)
 4. Log SESSION_START to events.log
 
-## Step 5: Run Baseline (if first session)
+## Step 4: Run Baseline (if first session)
 
 If `results.tsv` has no data rows (only header), run the baseline:
 1. Run the eval command as-is (no modifications)
 2. Parse the primary metric
 3. Log as baseline in results.tsv and events.log
 
-## Step 6: Experiment Loop
+## Step 5: Experiment Loop
 
 Follow the experiment loop from program.md. This is a FOREVER loop:
 
