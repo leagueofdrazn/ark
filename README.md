@@ -39,21 +39,29 @@ ARK has three layers, matching Karpathy's original design:
 
 ## Quick start
 
-### Install
+### Getting Started
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/leagueofdrazn/ark/main/install.sh | sh
 ```
 
-### Use
+Verify with:
 
-Open Claude Code in any project directory with permissions disabled so the agent can run autonomously:
+```
+/ark:help
+```
+
+### Recommended: Skip Permissions Mode
+
+ARK is designed for autonomous overnight experiments. Run Claude Code with:
 
 ```bash
 claude --dangerously-skip-permissions
 ```
 
-Then:
+Without this, the agent will pause for permission on every file edit and command — breaking the autonomous loop.
+
+### Use
 
 ```
 /ark:new           # Design your experiment (this is the only setup step)
@@ -63,7 +71,7 @@ Then:
 /ark:help          # Show all commands
 ```
 
-`/ark:new` is the only setup step — describe your goal and ARK designs everything. After that, you can use slash commands for structured actions, or just talk to Claude normally. Ask "how's my experiment going?" or "what's the best result so far?" and Claude reads the experiment files and answers. The slash commands aren't required — they just ensure a consistent, thorough response.
+`/ark:new` is the only setup step — describe your goal and ARK designs everything. After that, you can use slash commands or just talk to Claude normally. Ask "how's my experiment going?" and it reads the experiment files and answers.
 
 ## The onboarding conversation
 
