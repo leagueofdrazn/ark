@@ -42,14 +42,7 @@ ARK has three layers, matching Karpathy's original design:
 ### Install
 
 ```bash
-# Clone the repo
-git clone https://github.com/leagueofdrazn/autoresearch-kit.git
-
-# Install the slash commands into Claude Code
-cp -r autoresearch-kit/commands/ark ~/.claude/commands/
-
-# Install dashboard dependencies
-cd autoresearch-kit/dashboard && npm install
+curl -fsSL https://raw.githubusercontent.com/leagueofdrazn/ark/main/install.sh | sh
 ```
 
 ### Use
