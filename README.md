@@ -181,10 +181,10 @@ ARK adapts the metric structure to your goal. Some common patterns it might set 
 
 - **Single metric** — minimize val_bpb, or maximize net_sharpe
 - **Metric with constraints** — maximize Sharpe, but max_drawdown must stay under 15%
-- **Phased** — first get val_loss below 2.0, then switch to optimizing val_accuracy
+- **Phased** — first get val_loss below 2.0, then automatically switch to optimizing val_accuracy
 - **Composite** — optimize throughput / latency as a single score
 
-The AI decides what fits your domain. You don't pick from a menu.
+The AI decides what fits your domain. You don't pick from a menu. For phased experiments, the agent automatically shifts focus when a threshold is hit — no human intervention needed.
 
 ## Relationship to Karpathy's autoresearch
 
