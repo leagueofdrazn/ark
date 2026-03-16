@@ -12,8 +12,15 @@ echo ""
 
 # Clone or update
 if [ -d "$ARK_DIR" ]; then
-  echo "  Updating existing installation..."
+  BEFORE=$(git -C "$ARK_DIR" rev-parse HEAD 2>/dev/null)
   git -C "$ARK_DIR" pull --quiet
+  AFTER=$(git -C "$ARK_DIR" rev-parse HEAD 2>/dev/null)
+  if [ "$BEFORE" = "$AFTER" ]; then
+    echo "  Already on the latest version!"
+    echo ""
+    exit 0
+  fi
+  echo "  Updated to latest version..."
 else
   echo "  Downloading ARK..."
   git clone --quiet "$ARK_REPO" "$ARK_DIR"
