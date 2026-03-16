@@ -170,7 +170,7 @@ your-experiment/
 
 | File | Who writes it | Modifiable during experiments? |
 |------|--------------|-------------------------------|
-| `laws.md` | ARK (copied verbatim) | No — immutable, ever |
+| `laws.md` | ARK (copied verbatim) | Never |
 | `program.md` | Human + ARK together | No during runs. Yes between sessions |
 | `kit.json` | ARK | Only when human approves a strategy change |
 | `journal.md` | Agent | Yes — this is the knowledge base |
