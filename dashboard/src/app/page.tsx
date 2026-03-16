@@ -16,6 +16,18 @@ import {
 import type { DashboardData, Experiment, EventEntry, Floor, Phase } from "@/lib/types";
 
 // ─── Helpers ──────────────────────────────────────────────
+
+/** Format a number with appropriate precision based on its magnitude. */
+function fmt(n: number): string {
+  if (!isFinite(n)) return "--";
+  const abs = Math.abs(n);
+  if (abs === 0) return "0";
+  if (abs >= 1000) return n.toLocaleString(undefined, { maximumFractionDigits: 1 });
+  if (abs >= 1) return n.toLocaleString(undefined, { maximumFractionDigits: 2 });
+  if (abs >= 0.01) return n.toFixed(4);
+  return n.toExponential(2);
+}
+
 function StatusDot({ color, pulse }: { color: string; pulse?: boolean }) {
   return (
     <span
@@ -233,8 +245,8 @@ export default function Dashboard() {
           <>
             <SectionHead>Current Best</SectionHead>
             <div className="grid grid-cols-5 gap-3 mb-2">
-              <Metric label={`Best ${activeMetric}`} value={bestVal !== null ? bestVal.toFixed(4) : "---"} />
-              <Metric label="Baseline" value={baselineVal !== null ? baselineVal.toFixed(4) : "---"} />
+              <Metric label={`Best ${activeMetric}`} value={bestVal !== null ? fmt(bestVal) : "---"} />
+              <Metric label="Baseline" value={baselineVal !== null ? fmt(baselineVal) : "---"} />
               <Metric label="Improvement" value={`${improvement >= 0 ? "+" : ""}${improvement.toFixed(1)}%`} />
               <Metric label="Keep Rate" value={`${experiments.length > 0 ? (keepCount / experiments.length * 100).toFixed(0) : 0}%`} />
               <Metric label="Total" value={`${experiments.length}`} />
@@ -301,7 +313,7 @@ function PhaseBanner({ phases, currentIdx, validVals }: { phases: Phase[]; curre
       gateStatus = " · GATE MET";
     } else {
       const remaining = gate.direction === "below" ? best - gate.threshold : gate.threshold - best;
-      gateStatus = ` · ${Math.abs(remaining).toFixed(4)} to go`;
+      gateStatus = ` · ${fmt(Math.abs(remaining))} to go`;
     }
   }
 
@@ -405,8 +417,8 @@ function ProgressChart({
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             formatter={((value: any, name: any) => {
               const v = Number(value);
-              if (name === "bestLine") return [isNaN(v) ? "--" : v.toFixed(4), "Running Best"];
-              return [isNaN(v) ? "--" : v.toFixed(4), metricKey];
+              if (name === "bestLine") return [isNaN(v) ? "--" : fmt(v), "Running Best"];
+              return [isNaN(v) ? "--" : fmt(v), metricKey];
             }) as any}
             labelFormatter={((label: any) => {
               const d = chartData[Number(label) - 1];
@@ -507,7 +519,7 @@ function FloorGauges({
             <div key={name} className="border border-[var(--border)] bg-[var(--bg-card)] rounded-md px-4 py-3">
               <div className="text-[0.7rem] uppercase tracking-wider text-[var(--text2)] mb-1">{name}</div>
               <div className={`text-xl ${safe ? "text-[var(--green)]" : "text-[var(--red)]"}`}>
-                {isNumeric ? val.toFixed(4) : String(raw)}
+                {isNumeric ? fmt(val) : String(raw)}
               </div>
               <div className="text-xs text-[var(--text3)] mt-1">
                 {safe ? "Pass" : "FAIL"}
@@ -518,7 +530,7 @@ function FloorGauges({
               {isNumeric && (
                 <GaugeBar
                   label=""
-                  value={val.toFixed(4)}
+                  value={fmt(val)}
                   max={String(floor.value)}
                   pct={floor.direction === "lower" ? (floor.value ? val / (floor.value as number) : 0) : (val ? (floor.value as number) / val : 0)}
                 />
@@ -640,7 +652,7 @@ function ExperimentTable({
                             : "text-[var(--text)]"
                         }`}
                       >
-                        {v !== undefined ? (typeof v === "number" ? v.toFixed(4) : String(v)) : "--"}
+                        {v !== undefined ? (typeof v === "number" ? fmt(v) : String(v)) : "--"}
                       </td>
                     );
                   })}
@@ -825,7 +837,7 @@ function DiminishingReturns({ values, direction }: { values: number[]; direction
           <div className="text-[0.7rem] uppercase tracking-wider text-[var(--text2)] mb-1">
             Avg improvement (recent)
           </div>
-          <div className="text-xl text-[var(--text)]">{avgImprovement.toFixed(4)} / exp</div>
+          <div className="text-xl text-[var(--text)]">{fmt(avgImprovement)} / exp</div>
         </div>
         <div className="flex items-center text-sm" style={{ color: statusColor }}>
           {message}
