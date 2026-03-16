@@ -72,6 +72,16 @@ Follow the experiment loop from program.md. This is a FOREVER loop:
 - Read only the last 50 lines of run.log to check for errors
 - The loop runs until the human interrupts you, period
 
+**KEEP OUTPUT CLEAN:**
+- Use `git add -q` and `git commit -q` to suppress git noise
+- Suppress or redirect verbose command output (e.g. `> /dev/null 2>&1` for commands where you don't need the output)
+- After each experiment, print a single clean summary line, e.g.:
+  ```
+  #3 KEEP  peak_rss_mb: 361.53 (-61%)  "Load only needed columns + del intermediates"
+  #4 DISCARD  peak_rss_mb: 415.95  output_correct: false  "Categorical dtypes + float32"
+  ```
+- Do NOT print raw git stats, file change counts, or full command output. The user should see a clean experiment log, not tool noise.
+
 </process>
 
 <success_criteria>
